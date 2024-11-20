@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iiitd.byteme.handlers.AdminController">
+    <Label layoutX="420.0" layoutY="100.0" text="Welcome Admin">
+        <font>
+          <Font size="22.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="190.0" mnemonicParsing="false" onAction="#onAdd" onMouseEntered="#onAddMouseEnter" onMouseExited="#onAddMouseExit" prefHeight="30.0" prefWidth="200.0" text="Add Item">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="addDesc" layoutX="430.0" layoutY="196.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="260.0" mnemonicParsing="false" onAction="#onPrice" onMouseEntered="#onPriceMouseEnter" onMouseExited="#onPriceMouseExit" prefHeight="30.0" prefWidth="200.0" text="Update Item Price">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="priceDesc" layoutX="430.0" layoutY="265.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="330.0" mnemonicParsing="false" onAction="#onAvail" onMouseEntered="#onAvailMouseEnter" onMouseExited="#onAvailMouseExit" prefHeight="30.0" prefWidth="200.0" text="Update Item Availability">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="availDesc" layoutX="430.0" layoutY="329.0" textFill="#f50000">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="400.0" mnemonicParsing="false" onAction="#onRemove" onMouseEntered="#onRemoveMouseEnter" onMouseExited="#onRemoveMouseExit" prefHeight="30.0" prefWidth="200.0" text="Remove Item">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="removeDesc" layoutX="430.0" layoutY="405.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="470.0" mnemonicParsing="false" onAction="#onView" onMouseEntered="#onViewMouseEnter" onMouseExited="#onViewMouseExit" prefHeight="30.0" prefWidth="200.0" text="View Pending Orders">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="pendingDesc" layoutX="430.0" layoutY="476.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="540.0" mnemonicParsing="false" onAction="#onStatus" onMouseEntered="#onStatusMouseEnter" onMouseExited="#onStatusMouseExit" prefHeight="30.0" prefWidth="200.0" text="Update Order Status">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="statusDesc" layoutX="430.0" layoutY="546.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="610.0" mnemonicParsing="false" onAction="#onRefund" onMouseEntered="#onRefundMouseEnter" onMouseExited="#onRefundMouseExit" prefHeight="30.0" prefWidth="200.0" text="Process Refunds">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="refundDesc" layoutX="430.0" layoutY="616.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="680.0" mnemonicParsing="false" onAction="#onReport" onMouseEntered="#onReportMouseEnter" onMouseExited="#onReportMouseExit" prefHeight="30.0" prefWidth="200.0" text="Daily Report">
+        <font>
+          <Font size="15.0" />
+        </font>
+        <cursor>
+          <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Label fx:id="reportDesc" layoutX="430.0" layoutY="685.0" textFill="RED">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Label>
+   <Button layoutX="170.0" layoutY="750.0" mnemonicParsing="false" onAction="#onLogout" onMouseEntered="#onLogoutMouseEnter" onMouseExited="#onLogoutMouseExit" prefHeight="30.0" prefWidth="200.0" text="Logout">
+      <font>
+         <Font size="15.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <Label fx:id="logoutDesc" layoutX="430.0" layoutY="756.0" textFill="RED">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+</Pane>

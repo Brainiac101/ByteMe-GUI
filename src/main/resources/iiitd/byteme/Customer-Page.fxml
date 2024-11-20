@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0"
+      prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="iiitd.byteme.handlers.CustomerController">
+    <Label fx:id="header" layoutX="420.0" layoutY="100.0">
+        <font>
+            <Font size="22.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="190.0" mnemonicParsing="false" onAction="#onAllItems"
+            onMouseEntered="#onAllItemsMouseEnter" onMouseExited="#onAllItemsMouseExit" prefHeight="30.0"
+            prefWidth="200.0" text="View all Items">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="allDesc" layoutX="430.0" layoutY="193.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="230.0" mnemonicParsing="false" onAction="#onSearch"
+            onMouseEntered="#onSearchMouseEnter" onMouseExited="#onSearchMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Search Item">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="searchDesc" layoutX="430.0" layoutY="233.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="270.0" mnemonicParsing="false" onAction="#onFilter"
+            onMouseEntered="#onFilterMouseEnter" onMouseExited="#onFilterMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Filter Items">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="filterDesc" layoutX="430.0" layoutY="274.0" textFill="#f50000">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="310.0" mnemonicParsing="false" onAction="#onSort"
+            onMouseEntered="#onSortMouseEnter" onMouseExited="#onSortMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Sort Items">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="sortDesc" layoutX="430.0" layoutY="314.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="350.0" mnemonicParsing="false" onAction="#onAdd" onMouseEntered="#onAddMouseEnter"
+            onMouseExited="#onAddMouseExit" prefHeight="30.0" prefWidth="200.0" text="Add to Cart">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="addDesc" layoutX="430.0" layoutY="354.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="390.0" mnemonicParsing="false" onAction="#onModify"
+            onMouseEntered="#onModifyMouseEnter" onMouseExited="#onModifyMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Modify Cart">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="modifyDesc" layoutX="430.0" layoutY="394.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="430.0" mnemonicParsing="false" onAction="#onRemove"
+            onMouseEntered="#onRemoveMouseEnter" onMouseExited="#onRemoveMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Remove from Cart">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="removeDesc" layoutX="430.0" layoutY="434.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+
+    <Button layoutX="170.0" layoutY="470.0" mnemonicParsing="false" onAction="#onCart"
+            onMouseEntered="#onCartMouseEnter" onMouseExited="#onCartMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="View Cart">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="viewDesc" layoutX="430.0" layoutY="474.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="510.0" mnemonicParsing="false" onAction="#onPlace"
+            onMouseEntered="#onPlaceMouseEnter" onMouseExited="#onPlaceMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Place Order">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="placeDesc" layoutX="430.0" layoutY="514.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="550.0" mnemonicParsing="false" onAction="#onStatus"
+            onMouseEntered="#onStatusMouseEnter" onMouseExited="#onStatusMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="View Order Status">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="statusDesc" layoutX="430.0" layoutY="554.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="590.0" mnemonicParsing="false" onAction="#onCancel"
+            onMouseEntered="#onCancelMouseEnter" onMouseExited="#onCancelMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Cancel Order">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="cancelDesc" layoutX="430.0" layoutY="594.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="630.0" mnemonicParsing="false" onAction="#onHistory"
+            onMouseEntered="#onHistoryMouseEnter" onMouseExited="#onHistoryMouseExit" prefHeight="30.0"
+            prefWidth="200.0" text="View Order History">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="historyDesc" layoutX="430.0" layoutY="634.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="670.0" mnemonicParsing="false" onAction="#onRepeat"
+            onMouseEntered="#onRepeatMouseEnter" onMouseExited="#onRepeatMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Repeat Order">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="repeatDesc" layoutX="430.0" layoutY="674.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="710.0" mnemonicParsing="false" onAction="#onWrite"
+            onMouseEntered="#onWriteMouseEnter" onMouseExited="#onWriteMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Write a Review">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="writeDesc" layoutX="430.0" layoutY="714.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="750.0" mnemonicParsing="false" onAction="#onRead"
+            onMouseEntered="#onReadMouseEnter" onMouseExited="#onReadMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Read Reviews">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="readDesc" layoutX="430.0" layoutY="754.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="790.0" mnemonicParsing="false" onAction="#onVIP" onMouseEntered="#onVIPMouseEnter"
+            onMouseExited="#onVIPMouseExit" prefHeight="30.0" prefWidth="200.0" text="Upgrade to VIP">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="vipDesc" layoutX="430.0" layoutY="794.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+    <Button layoutX="170.0" layoutY="830.0" mnemonicParsing="false" onAction="#onLogout"
+            onMouseEntered="#onLogoutMouseEnter" onMouseExited="#onLogoutMouseExit" prefHeight="30.0" prefWidth="200.0"
+            text="Logout">
+        <font>
+            <Font size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Label fx:id="logoutDesc" layoutX="430.0" layoutY="834.0" textFill="RED">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
+</Pane>
