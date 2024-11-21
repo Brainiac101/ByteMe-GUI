@@ -73,15 +73,20 @@ public final class Cart implements Serializable {
         return this.readFile();
     }
 
-    public void addItem(Item item, int quantity) {
+    public String addItem(Item item, int quantity) {
         if (quantity > 0 && item.getAvailability() > quantity) {
             item.setAvailability(item.getAvailability() - quantity);
             ItemList.updateItem(item);
             this.items.put(item, quantity);
             this.price += item.getPrice() * quantity;
             System.out.println("Item added to the cart\n");
-        } else if (quantity < 0) System.out.println("Please enter valid quantity (must be greater than zero)");
+            return "Item added to the cart\n";
+        } else if (quantity < 0) {
+            System.out.println("Please enter valid quantity (must be greater than zero)");
+            return "Please enter valid quantity (must be greater than zero)";
+        }
         else System.out.println("Entered quantity exceeds count in Inventory");
+        return "Entered quantity exceeds count in Inventory";
     }
 
     public boolean containsItem(Item item) {

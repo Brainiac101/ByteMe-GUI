@@ -73,12 +73,13 @@ public class Customer extends User {
         }
     }
 
-    public void addItem(String name, int quantity) {
+    public String addItem(String name, int quantity) {
         Item item = ItemList.getItemByName(name);
         if (item != null) {
-            cart.addItem(item, quantity);
+            return cart.addItem(item, quantity);
         }
         else System.out.println("No item with name " + name + " found\n");
+        return "";
     }
 
     public void increaseQuantity(String name) {

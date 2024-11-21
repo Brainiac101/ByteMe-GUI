@@ -27,15 +27,36 @@ public final class LoginController {
     private Scene scene;
     private Parent root;
 
-//   public LoginController(){
-//        username.setText("");
-//        password.setText("");
-//        alert.setText("");
-//    }
-//
-//    public String getAlert() {
-//        return alert.getText();
-//    }
+    @FXML
+   public void initialize(){
+        username.setText("");
+        password.setText("");
+        alert.setText("");
+    }
+
+    public String getUsername() {
+        return username.getText();
+    }
+
+    public void setUsername(String username) {
+        this.username.setText(username);
+    }
+
+    public String getPassword() {
+        return password.getText();
+    }
+
+    public void setPassword(String password) {
+        this.password.setText(password);
+    }
+
+    public void setAlert(String alert) {
+        this.alert.setText(alert);
+    }
+
+    public String getAlert() {
+        return alert.getText();
+    }
 
     @FXML private void onAdmin() {
         header.setText("Login as: Admin");
@@ -110,7 +131,7 @@ public final class LoginController {
         stage.show();
     }
 
-//    public void loginTest() throws IOException {
-//        this.onLogin(new ActionEvent());
-//    }
+    public void loginTest() throws IOException {
+        this.onLogin(new ActionEvent());
+    }
 }

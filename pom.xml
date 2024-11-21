@@ -77,14 +77,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>${junit.version}</version>-->
-<!--                <configuration>-->
-<!--                    <useJUnitPlatform>true</useJUnitPlatform> &lt;!&ndash; Ensures JUnit 5 &ndash;&gt;-->
-<!--                </configuration>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 </project>
