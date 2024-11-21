@@ -43,6 +43,7 @@ public final class CustomerList implements Serializable{
     public static void updateCustomer(Customer customer) {
         HashMap<String, Customer> customers = readFile();
         Customer oldCustomer = customers.replace(customer.getUsername(), customer);
+        writeFile(customers);
         if(oldCustomer == null) System.out.println("No customer with username " + customer.getUsername());
     }
     public static Customer getCustomer(String username) {

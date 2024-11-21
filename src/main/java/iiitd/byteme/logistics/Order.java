@@ -35,6 +35,30 @@ public final class Order implements Serializable {
         this.user = user;
     }
 
+    public Customer getUser() {
+        return user;
+    }
+
+    public String getRequest() {
+        return request;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
+    }
+
     public boolean isPaid() {
         return isPaid;
     }

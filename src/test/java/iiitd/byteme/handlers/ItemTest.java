@@ -24,6 +24,7 @@ public class ItemTest {
     public void addItem() {
         String message = c.addItem("juice", 10);
         assertEquals("Entered quantity exceeds count in Inventory", message);
+        ItemList.deleteFile();
     }
 
 }
