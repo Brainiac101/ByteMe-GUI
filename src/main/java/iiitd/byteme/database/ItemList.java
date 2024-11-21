@@ -2,20 +2,12 @@ package iiitd.byteme.database;
 
 import iiitd.byteme.logistics.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ItemList {
+public final class ItemList implements Serializable {
     private static final List<Item> items = new ArrayList<>();
-
-    public static boolean contains(String name) {
-        for (Item item : items) {
-            if (item.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public static void addItem(Item item) {
         items.add(item);

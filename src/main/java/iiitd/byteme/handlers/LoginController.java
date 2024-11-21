@@ -27,20 +27,27 @@ public final class LoginController {
     private Scene scene;
     private Parent root;
 
-    @FXML
-    protected void onAdmin() {
+//   public LoginController(){
+//        username.setText("");
+//        password.setText("");
+//        alert.setText("");
+//    }
+//
+//    public String getAlert() {
+//        return alert.getText();
+//    }
+
+    @FXML private void onAdmin() {
         header.setText("Login as: Admin");
         type = false;
     }
 
-    @FXML
-    protected void onCustomer() {
+    @FXML private void onCustomer() {
         header.setText("Login as: Customer");
         type = true;
     }
 
-    @FXML
-    protected void onLogin(ActionEvent event) throws IOException {
+    @FXML private void onLogin(ActionEvent event) throws IOException {
         String username;
         String password;
         try {
@@ -95,12 +102,15 @@ public final class LoginController {
         }
     }
 
-    @FXML
-    protected void onBack(ActionEvent event) throws IOException {
+    @FXML private void onBack(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Main.class.getResource("Home-Page.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1000, 1000);
         stage.setScene(scene);
         stage.show();
     }
+
+//    public void loginTest() throws IOException {
+//        this.onLogin(new ActionEvent());
+//    }
 }

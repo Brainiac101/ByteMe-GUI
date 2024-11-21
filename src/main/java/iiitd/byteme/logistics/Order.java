@@ -1,11 +1,13 @@
+
 package iiitd.byteme.logistics;
 
 import iiitd.byteme.users.Customer;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public final class Order {
-    private Customer user;
+public final class Order implements Serializable {
+    private final Customer user;
     private int id;
     private final HashMap<Item, Integer> items;
     private Status status;

@@ -5,28 +5,56 @@ import iiitd.byteme.database.ItemList;
 import iiitd.byteme.database.OrderList;
 import iiitd.byteme.users.Customer;
 
-
+import java.io.*;
 import java.util.*;
 
-public final class Cart {
+public final class Cart implements Serializable {
     private final Customer user;
     private final HashMap<Item, Integer> items;
     private int price;
-    private final List<Order> orders;
     private String request;
     private String address;
     private boolean isPaid;
 
+    private final String file;
+
     public Cart(Customer user) {
         this.user = user;
         items = new HashMap<>();
-        orders = new ArrayList<>();
+        this.file = "files/" + user.getUsername() + ".dat";
     }
 
     public Cart(Customer user, List<Order> orders) {
         this.user = user;
         items = new HashMap<>();
-        this.orders = orders;
+        this.file = "files/" + user.getUsername() + ".dat";
+        writeFile(orders);
+    }
+
+    private List<Order> readFile() {
+        List<Order> orders = new ArrayList<>();
+        File temp = new File(file);
+        if (!temp.exists()) return orders;
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(temp));
+            orders = (List<Order>) in.readObject();
+            in.close();
+            return orders;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return orders;
+    }
+
+    private void writeFile(List<Order> customers) {
+        try{
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+            out.writeObject(customers);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
     public void setPaid(boolean paid) {
@@ -42,7 +70,7 @@ public final class Cart {
     }
 
     public List<Order> getOrders() {
-        return orders;
+        return this.readFile();
     }
 
     public void addItem(Item item, int quantity) {
@@ -68,6 +96,7 @@ public final class Cart {
     }
 
     public Order getLastOrder() {
+        List<Order> orders = this.readFile();
         if (!orders.isEmpty()) return orders.getLast();
         else return null;
     }
@@ -86,11 +115,13 @@ public final class Cart {
                 ItemList.updateItem(i);
             }
         }
+        List<Order> orders = this.readFile();
         orders.remove(order);
         order.setStatus(Status.Cancelled);
         OrderList.removeOrder(order.getId());
         if (order.isPaid()) DeniedOrders.addDeniedOrder(order);
         System.out.println("Order Cancelled\n");
+        this.writeFile(orders);
     }
 
     public void addQuantity(Item item) {
@@ -109,19 +140,26 @@ public final class Cart {
 
     public void placeOrder(boolean isVIP) {
         int priority = isVIP ? 1 : 0;
-        if (!items.isEmpty())
+        if (!items.isEmpty()) {
+            List<Order> orders = this.readFile();
+            if(request == null) request = "No requests";
             orders.add(OrderList.addOrder(new Order(items, Status.OrderReceived, priority, request, price, address, isPaid, user)));
+            this.writeFile(orders);
+        }
     }
 
     public void placeOrder(boolean isVIP, int index) {
+        List<Order> orders = this.readFile();
         Order o = orders.get(index);
         int priority = isVIP ? 1 : 0;
         o.setStatus(Status.OrderReceived);
         o.setPriority(priority);
         orders.add(OrderList.addOrder(o));
+        this.writeFile(orders);
     }
 
     public boolean hasBoughtItem(Item item) {
+        List<Order> orders = this.readFile();
         for (Order o : orders) {
             if (o.getStatus() == Status.OrderReceived) {
                 for (Item i : o.getItems().keySet()) {
@@ -141,4 +179,3 @@ public final class Cart {
         return "Item List:\n" + temp + "\nRequests: " + this.request + "\nOrder Value: " + this.price + "\n";
     }
 }
-

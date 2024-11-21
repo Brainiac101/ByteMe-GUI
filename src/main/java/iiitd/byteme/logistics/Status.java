@@ -1,5 +1,7 @@
 package iiitd.byteme.logistics;
 
-public enum Status {
+import java.io.Serializable;
+
+public enum Status implements Serializable {
     Cancelled, Denied, Delivered, OutForDelivery, Preparing, OrderReceived
 }

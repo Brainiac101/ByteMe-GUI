@@ -1,5 +1,7 @@
 package iiitd.byteme.logistics;
 
-public enum Category {
+import java.io.Serializable;
+
+public enum Category implements Serializable {
     Beverage, Snack, Meal
 }

@@ -1,9 +1,10 @@
 package iiitd.byteme.logistics;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Item {
+public final class Item implements Serializable {
     private final String name;
     private int price;
     private final Category category;

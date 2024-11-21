@@ -2,9 +2,10 @@ package iiitd.byteme.database;
 
 import iiitd.byteme.logistics.*;
 
+import java.io.Serializable;
 import java.util.*;
 
-public final class OrderList {
+public final class OrderList implements Serializable {
     private static final PriorityQueue<Order> orderList = new PriorityQueue<>((o1, o2) -> {
         if (o1.getPriority() != o2.getPriority()) {
             return Integer.compare(o2.getPriority(), o1.getPriority());
@@ -59,8 +60,6 @@ public final class OrderList {
     }
 
     public static List<Order> getPendingOrders() {
-        List<Order> orders = new ArrayList<>();
-        orderList.forEach(order -> orders.add(order));
-        return orders;
+        return new ArrayList<>(orderList);
     }
 }
