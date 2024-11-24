@@ -10,7 +10,7 @@ All assumptions of the previous submission hold
 
 ## Serialization
 
-Added serialization, that is file handling, for saving customer data, item menu, and eacch user's orders.
+Added serialization, that is file handling, for saving customer data, item menu, and each user's orders.
 
 ## JUnit
 
