@@ -17,3 +17,10 @@ Added serialization, that is file handling, for saving customer data, item menu,
 Added tests:
 - Customer login (invalid username/password and leaving empty fields)
 - Out of stock item ordered
+
+
+## References
+
+- Stack Overflow
+- Java Oracle Docs
+- JavaFX Official Docs
