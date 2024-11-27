@@ -122,7 +122,13 @@ public final class ItemList implements Serializable {
 
     public static void removeItem(Item item) {
         List<Item> items = readFile();
-        items.remove(item);
+        for(int i = 0; i < items.size(); i++) {
+            Item temp = items.get(i);
+            if (temp.getName().equals(item.getName()) && temp.getCategory().equals(item.getCategory())) {
+                items.remove(i);
+                break;
+            }
+        }
         writeFile(items);
     }
 }

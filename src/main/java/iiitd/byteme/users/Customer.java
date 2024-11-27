@@ -102,8 +102,9 @@ public class Customer extends User {
 
     public void removeItem(String name) {
         Item item = ItemList.getItemByName(name);
-        if (item != null && cart.containsItem(item)) {
-            cart.removeItem(item);
+//        System.out.println(item);
+        if (item != null && cart.containsItem(name)) {
+            cart.removeItem(name);
             System.out.println("Item removed!!\n");
         }
         else System.out.println("No item with name " + name + " found\n");

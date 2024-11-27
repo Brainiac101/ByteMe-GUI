@@ -48,7 +48,7 @@ public final class Cart implements Serializable {
     }
 
     private void writeFile(List<Order> customers) {
-        try{
+        try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
             out.writeObject(customers);
         } catch (IOException e) {
@@ -84,20 +84,29 @@ public final class Cart implements Serializable {
         } else if (quantity < 0) {
             System.out.println("Please enter valid quantity (must be greater than zero)");
             return "Please enter valid quantity (must be greater than zero)";
-        }
-        else System.out.println("Entered quantity exceeds count in Inventory");
+        } else System.out.println("Entered quantity exceeds count in Inventory");
         return "Entered quantity exceeds count in Inventory";
     }
 
-    public boolean containsItem(Item item) {
-        return items.containsKey(item);
+    public boolean containsItem(String item) {
+        for (Item i : this.items.keySet()) {
+            if (i.getName().equals(item)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void removeItem(Item item) {
-        item.setAvailability(item.getAvailability() + this.items.get(item));
-        ItemList.updateItem(item);
-        this.price -= item.getPrice() * this.items.get(item);
-        this.items.remove(item);
+    public void removeItem(String name) {
+        for (Item i : this.items.keySet()) {
+            if (i.getName().equals(name)) {
+                i.setAvailability(i.getAvailability() + this.items.get(i));
+                ItemList.updateItem(i);
+                this.price -= i.getPrice() * this.items.get(i);
+                this.items.remove(i);
+                break;
+            }
+        }
     }
 
     public Order getLastOrder() {
@@ -145,12 +154,11 @@ public final class Cart implements Serializable {
 
     public void placeOrder(boolean isVIP) {
         int priority = isVIP ? 1 : 0;
-        if (!items.isEmpty()) {
-            List<Order> orders = this.readFile();
-            if(request == null) request = "No requests";
-            orders.add(OrderList.addOrder(new Order(items, Status.OrderReceived, priority, request, price, address, isPaid, user)));
-            this.writeFile(orders);
-        }
+        if(items.keySet().isEmpty()) return;
+        List<Order> orders = this.readFile();
+        if (request == null) request = "No requests";
+        orders.add(OrderList.addOrder(new Order(items, Status.OrderReceived, priority, request, price, address, isPaid, user)));
+        this.writeFile(orders);
     }
 
     public void placeOrder(boolean isVIP, int index) {
@@ -178,7 +186,7 @@ public final class Cart implements Serializable {
     @Override
     public String toString() {
         StringBuilder temp = new StringBuilder();
-        for(Item item : items.keySet()){
+        for (Item item : items.keySet()) {
             temp.append("Name: ").append(item.getName()).append("\nPrice: ").append(item.getPrice()).append("\nCategory: ").append(item.getCategory()).append("\nQuantity: ").append(items.get(item)).append("\n");
         }
         return "Item List:\n" + temp + "\nRequests: " + this.request + "\nOrder Value: " + this.price + "\n";

@@ -30,13 +30,16 @@ public final class Admin extends User{
 
     public void deleteItem(String name){
         Item item = ItemList.getItemByName(name);
+        System.out.println(item);
         if(item == null){
             System.out.println("Item not found\n");
             return;
         }
         for(Order o: OrderList.getPendingOrders()) {
-            o.setStatus(Status.Denied);
-            OrderList.updateOrder(o);
+            if(o.getItems().containsKey(item)) {
+                o.setStatus(Status.Denied);
+                OrderList.updateOrder(o);
+            }
         }
         ItemList.removeItem(item);
         System.out.println("Item removed\n");
